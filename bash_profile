@@ -1,5 +1,6 @@
 export HISTCONTROL=ignoreboth:erasedups
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+#export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 if [ -f ~/.bash_profile_work ]
 then
@@ -11,6 +12,6 @@ then
     . ~/.bashrc
 fi
 
-TZ='America/Los_Angeles'; export TZ
+TZ='Australia/Melbourne'; export TZ
 
 source ~/.git-completion.bash

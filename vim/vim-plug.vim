@@ -41,9 +41,9 @@ Plug 'haya14busa/vim-operator-flashy'
 Plug 'haya14busa/is.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'luochen1990/rainbow'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-jedi', { 'for': [ 'python' ] }
-Plug 'zchee/deoplete-clang', { 'for': [ 'c', 'cpp', 'h' ] }
+"Plug 'zchee/deoplete-clang', { 'for': [ 'c', 'cpp', 'h' ] }
 "Plug 'Shougo/neoinclude.vim'
 "Plug 'junegunn/gv.vim'
 "Plug 'terryma/vim-multiple-cursors'

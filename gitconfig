@@ -1,5 +1,6 @@
 [user]
         name = Aaron Cleaver
+	email = aaron.cleaver@veltronix.com.au
 [github]
         user = AaronCleaver
 [diff]
@@ -26,7 +27,7 @@
         new = green bold
 
 [color "status"]
-        added = green
+        added = green bold
         changed = yellow
         untracked = cyan
 
