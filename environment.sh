@@ -80,3 +80,31 @@ if command_exists fzf; then
   bind -x '"\C-p": vim $(fzf);'
   export FZF_DEFAULT_OPTS='--reverse --color=fg+:221,hl+:1,hl:202'
 fi
+
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+if [ -S "${SSH_AUTH_SOCK}" ]; then
+  echo "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}; export SSH_AUTH_SOCK;" > ${SSH_ENV}
+elif [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    #ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    #    start_agent;
+    #}
+fi
+
+if [ ! -S "${SSH_AUTH_SOCK}" ]; then
+  echo SSH_AUTH_SOCK NOT FOUND ${SSH_AUTH_SOCK}
+  start_agent;
+fi
+
