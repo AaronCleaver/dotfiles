@@ -2,6 +2,8 @@
 
 set -e -x
 
+sed -i -e "s@http://archive.ubuntu.com/ubuntu/@http://mirror.aarnet.edu.au/pub/ubuntu/archive/" /etc/apt/sources.list
+
 apt update
 apt upgrade -y
 
@@ -15,3 +17,5 @@ service docker start
 apt install -y python3 python3-pip python3-setuptools
 pip3 install wheel
 pip3 install pynvim
+apt install -y xpra xserver-xephyr xinit xauth xclip x11-xserver-utils x11-utils nxagent
+curl -fsSL https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker | bash -s -- --update
