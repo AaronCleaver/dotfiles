@@ -108,3 +108,10 @@ if [ ! -S "${SSH_AUTH_SOCK}" ]; then
   start_agent;
 fi
 
+DISPLAY_ENV=~/.env.display
+if [ ! -z "${DISPLAY}" ]; then
+  echo "export DISPLAY=${DISPLAY}" > ${DISPLAY_ENV}
+elif [ -f "${DISPLAY_ENV}" ]; then
+  . "${DISPLAY_ENV}"
+fi
+  
